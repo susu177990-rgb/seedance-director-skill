@@ -6,15 +6,19 @@ This skill converts rough ideas, image descriptions, video-frame analysis, revis
 
 ## One-Click Install
 
-After uploading this repository to GitHub, install it with:
+Install directly with:
 
 ```bash
-npx skills add YOUR_GITHUB_USERNAME/seedance-director-skill
+npx skills add susu177990-rgb/seedance-director-skill
 ```
 
-Replace `YOUR_GITHUB_USERNAME` with your GitHub username.
+Generic format for forks:
 
-## Recommended GitHub Repository Name
+```bash
+npx skills add <YOUR_GITHUB_USERNAME>/seedance-director-skill
+```
+
+## Repository Name
 
 ```text
 seedance-director-skill
