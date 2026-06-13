@@ -1,0 +1,16 @@
+{
+  "name": "seedance-director-skill",
+  "version": "1.0.0",
+  "description": "Universal multi-agent Seedance 2.0 cinematic prompt director skill.",
+  "private": true,
+  "license": "MIT",
+  "keywords": [
+    "seedance",
+    "prompt",
+    "video",
+    "director",
+    "cinematography",
+    "ai-video",
+    "skill"
+  ]
+}
