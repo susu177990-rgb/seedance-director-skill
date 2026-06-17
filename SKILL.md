@@ -77,17 +77,26 @@ Follow these hard rules unless the user explicitly changes the platform or outpu
 - Every important emotion, personality trait, or relationship beat must be translated into visible performance controls, not left as an abstract adjective.
 - Character performance must use shot-size-appropriate controls: gaze, mouth/jaw, breath, hands, body weight, posture, movement rhythm, concealment, and emotional leakage.
 - If a prompt is technically complete but visually generic or emotionally vague, revise silently before output.
-- Every final prompt must control viewer attention: what the viewer sees first, what they see second, what is withheld, when it is revealed, and where the eye lands.
-- Every final prompt must include director judgment: what to shoot, what not to shoot, how close the camera should be, when to move, and when to stop.
-- Every final prompt must adapt its directing grammar to the requested format, including film, TVC, MV, short video, vlog, documentary, action, CG, fantasy, food, fashion, beauty, travel, or casual handheld.
-- Every final prompt must include a rhythm and pause strategy; avoid constant motion without breathing room.
-- Every final prompt must stage relationships among subject, product, camera, light, space, props, and action instead of listing isolated visual elements.
+- Every prompt must control viewer attention before opening decoration.
+- Every prompt must include director judgment: what to shoot, what not to shoot, how close the camera should be, when to move, and when to stop.
+- Every prompt must adapt its directing grammar to the requested format, including film, TVC, MV, short video, vlog, documentary, action, CG, fantasy, food, fashion, beauty, travel, or casual handheld.
+- Every prompt must include a rhythm and pause strategy; avoid constant motion without breathing room.
+- Every prompt must stage relationships among subject, product, camera, light, space, props, and action instead of listing isolated visual elements.
+- Every prompt must ship with a `# 避免` section of at least 5 lines covering lighting, filter, performance, composition, and continuity. Prompts that omit `# 避免` are treated as incomplete and must be rewritten before output.
+- Every principal character must be locked across five layers: face/body anchors, hair, wardrobe, body behavior baseline, and relationship anchor. A role lock thinner than five layers is treated as a thin lock and must be rewritten.
+- Every prompt must include a complete texture chain — light source + direction + atmospheric state, color science (4+ named colors), filter stack name, grain/bloom/runner artifact trio, lens character, dynamic range rule, and skin preservation rule. The same texture chain must appear in `# 核心风格` and `# 整体质感`; drift between the two is a fail.
+- Every action shot must specify action as a beat chain of approximately 2 beats per second (so a 3-second shot ≈ 6 beats), with punctuation-gated time slices (顿号 / 逗号 for sub-beats, 「……」 for holds, 句号 for beat boundaries). One-verb-blob action descriptions are treated as incomplete and rewritten.
 
 ## Resource Loading Protocol
 
 Use progressive disclosure. Load only the resources needed for the current task:
 
-- For every final Seedance prompt-writing task, read `templates/seedance_2_prompt_template.md`, `rules/seedance_hard_rules.md`, `rules/director_judgment_rules.md`, `rules/attention_control_rules.md`, `rules/format_intelligence_rules.md`, `rules/rhythm_pause_rules.md`, `rules/mise_en_scene_rules.md`, `rules/authorial_shot_rules.md`, `checklists/anti_mediocrity_checklist.md`, and `checklists/final_qc_checklist.md`.
+- For every final Seedance prompt-writing task, read `templates/seedance_2_prompt_template.md`, `rules/seedance_hard_rules.md`, `rules/director_judgment_rules.md`, `rules/attention_control_rules.md`, `rules/format_intelligence_rules.md`, `rules/rhythm_pause_rules.md`, `rules/mise_en_scene_rules.md`, `rules/authorial_shot_rules.md`, `rules/role_lock_detailed_rules.md`, `rules/visual_texture_chain_rules.md`, `rules/beat_choreography_rules.md`, `rules/avoidance_section_rules.md`, `checklists/anti_mediocrity_checklist.md`, and `checklists/final_qc_checklist.md`.
+- For any task where characters, props, or scenes carry continuity weight across shots (most briefs), these four files are co-equal to the seedance_hard_rules and must be applied without skipping:
+  - `rules/role_lock_detailed_rules.md` — five-layer identity, hair, wardrobe, body behavior baseline, and relationship anchor lock
+  - `rules/visual_texture_chain_rules.md` — light source + color science + filter stack + grain + lens character + dynamic range, written as a single chained sentence reused across `#核心风格` and `#整体质感`
+  - `rules/beat_choreography_rules.md` — each action shot written as a 4-7 beat chain with punctuation-gated time slices, not a single verb phrase
+  - `rules/avoidance_section_rules.md` — every final prompt ships with `#避免` of at least 5 lines spanning lighting, filter, performance, and continuity 
 - For image or video-frame conversion, also read `rules/image_to_text_rules.md`.
 - For prompt auditing, failure diagnosis, or unstable generation repair, also read `checklists/generation_risk_checklist.md` and `references/agents/ai_video_feasibility.md`.
 - For continuity-heavy scenes, multi-character scenes, prop handoffs, spatial transitions, or revision tasks, also read `rules/continuity_rules.md` and `checklists/continuity_checklist.md`.
@@ -97,6 +106,8 @@ Use progressive disclosure. Load only the resources needed for the current task:
 - For detailed shot construction, read `rules/shot_design_rules.md`.
 - For deeper attention or judgment planning, read `references/agents/attention_director.md` and `references/agents/director_judgment.md`.
 - For quality calibration, vague briefs, high-artistic-standard requests, or any output that risks becoming generic, read `references/calibration/strong_director_examples.md` before final compilation.
+- For symptom-to-fix lookup when a generation comes back flat, generic, drifted in identity, or visually off, jump to `references/calibration/mv_youth_director_examples.md` and match the user's complaint to a named pattern (MV-A through MV-G).
+- For the regression test record of how this skill's outputs have improved across upgrades, read `references/calibration/before_after_regression.md`.
 - For quick rewrites of ordinary, over-polished, emotionally vague, visually cluttered, or constantly moving prompts, read `references/calibration/bad_to_great_patterns.md`.
 - For internal role detail when needed, read only the relevant file under `references/agents/`.
 

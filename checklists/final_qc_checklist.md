@@ -9,6 +9,8 @@ Run this silently before output.
 - No extra explanation after final prompt unless requested.
 - No meaningless blank lines.
 - Total word count is compact.
+- `# 避免` section is present with at least 5 lines (lighting + filter + performance + composition + continuity).
+- `# 整体质感` first paragraph repeats the same filter stack name, light source, color palette, and dynamic range rule as `# 核心风格` (drift between the two is a fail).
 
 ## Seedance Rules
 
@@ -26,14 +28,39 @@ Run this silently before output.
 
 ## Forbidden Wording
 
-- No “参考图”.
-- No “以图为参考”.
-- No “根据图”.
-- No “如图所示”.
-- No “这次改成”.
-- No “上一版”.
-- No “之前问题”.
+- No "参考图".
+- No "以图为参考".
+- No "根据图".
+- No "如图所示".
+- No "这次改成".
+- No "上一版".
+- No "之前问题".
 - No process or revision notes.
+
+## Role Lock Density
+
+- Each principal character has all five layers: face/body anchors, hair, wardrobe (3+ items + color + fabric), body behavior baseline, relationship anchor.
+- Role description is at least 100 characters per character; thin 1-2 line locks are rewritten.
+- At least one character carries a unique identification mark (痣 / 疤 / 单品特征 / 配饰).
+- Multi-character prompts include a "双人关系限制" or equivalent paragraph listing forbidden interactions.
+- If the user supplied character reference images at task start, the role block opens with "（必须完美还原 [图源描述] 的五官长相）".
+- Locked assets have at least one `#关键统一原则` (or `#避免` line) anchoring them across shots: [角色] 全程穿 X / 全程戴 Y / 不中途换。
+
+## Texture Chain Density
+
+- `# 核心风格` names the texture chain in this exact order: format name + palette (4+ named colors) + filter stack + light source + atmospheric state + dynamic range rule + grain/bloom/runner artifact trio + skin preservation rule + deny list.
+- `# 整体质感` repeats the same filter stack name, same palette, same light source, and same dynamic range rule as `# 核心风格` — they are visible in the same wording.
+- Skin preservation rule is present: 保留真实肤色 / 不磨皮 / 不出现蜡感.
+- A negative deny list appears somewhere in `#核心风格` or `#整体质感` or `#避免`.
+
+## Beat Chain Density
+
+- Each non-static shot includes a beat chain in `# 画面` with approximately 2 beats per second of shot duration.
+- A 3-second shot has roughly 6 beats.
+- Beats are separated by 顿号 / 逗号 / 句号 with `……` for holds.
+- The last beat of every chain is a state, not a continued action (e.g., "肩膀保持原位" not "肩膀继续下垂").
+- Multi-character shots alternate beats between characters (no same character with 2+ consecutive beats).
+- Static shots explicitly state `静止` rather than implied absence of motion.
 
 ## Cinematic Quality
 
