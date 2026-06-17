@@ -52,6 +52,11 @@ Use this skill when the user requests any of the following:
 Follow these hard rules unless the user explicitly changes the platform or output format:
 
 - Total duration must not exceed 15 seconds.
+- If the user does not specify a concrete duration, design the segment as exactly 15 seconds by default.
+- If the user specifies a concrete duration of 15 seconds or less, use that duration.
+- If the user requests more than 15 seconds for Seedance 2.0, compress the idea into 15 seconds unless the user explicitly changes platform or segment format.
+- Shot count must be director-selected within 1-9 shots according to content density, attention path, rhythm, and readability. Do not force a fixed count.
+- If the user provides only a simple instruction, expand it into a complete, coherent, watchable 15-second segment with director imagination, not a thin or underdeveloped clip.
 - Each video segment is generated independently.
 - Shot numbering must start from 1.
 - Timeline must start from 0 seconds for every segment.
@@ -105,23 +110,25 @@ Use this workflow silently:
 2. Identify the format and video type: film, TVC, MV, short video, vlog, documentary, action, product, character, space, fantasy, CG, commercial, dialogue, transition, or mixed.
 3. Extract fixed assets: characters, scene, props, wardrobe, weather, lighting, style, ratio, duration, dialogue, required actions.
 4. Determine the core emotional, narrative, product, documentary, social, or casual-observation task.
-5. Make director judgments: what to shoot, what not to shoot, how close to be, when to move, and when to stop.
-6. Design the viewer attention path: first look, second look, withheld information, reveal moment, and landing point.
-7. Choose format-specific directing grammar and realism/polish level.
-8. If the brief is vague, high-stakes, or likely to become generic, calibrate against `references/calibration/strong_director_examples.md` and `references/calibration/bad_to_great_patterns.md`.
-9. Find one authorial visual idea that makes the segment worth watching.
-10. Design one memory-point shot before filling the rest of the sequence.
-11. Design a shot-time skeleton with rhythm and pause.
-12. Assign one main function, one hierarchy role, and one attention target to each shot.
-13. Add cinematography: shot size, lens, aperture, movement, framing, lighting.
-14. Add mise-en-scene: subject, product, camera, light, space, props, and action relationships.
-15. Convert emotion, personality, and relationship into performance controls.
-16. Add blocking and performance details: position, entrance, exit, gaze, gesture, body direction, emotional change.
-17. Add production design details: spatial anchors, material, color, props, background layers.
-18. Check continuity across shots.
-19. Simplify actions that are too complex for AI video generation.
-20. Compile the final answer using the Seedance output template.
-21. Run attention-control QC, anti-mediocrity QC, and final technical QC before responding.
+5. If the brief is simple, expand it into a full 15-second cinematic micro-sequence by adding plausible setup, reveal, action development, pause, and landing image while preserving the user's core idea.
+6. Make director judgments: what to shoot, what not to shoot, how close to be, when to move, and when to stop.
+7. Design the viewer attention path: first look, second look, withheld information, reveal moment, and landing point.
+8. Choose format-specific directing grammar and realism/polish level.
+9. If the brief is vague, high-stakes, or likely to become generic, calibrate against `references/calibration/strong_director_examples.md` and `references/calibration/bad_to_great_patterns.md`.
+10. Find one authorial visual idea that makes the segment worth watching.
+11. Design one memory-point shot before filling the rest of the sequence.
+12. Design a 15-second default shot-time skeleton unless the user specified a concrete duration.
+13. Select 1-9 shots by director judgment according to content density, attention path, rhythm, and readability.
+14. Assign one main function, one hierarchy role, and one attention target to each shot.
+15. Add cinematography: shot size, lens, aperture, movement, framing, lighting.
+16. Add mise-en-scene: subject, product, camera, light, space, props, and action relationships.
+17. Convert emotion, personality, and relationship into performance controls.
+18. Add blocking and performance details: position, entrance, exit, gaze, gesture, body direction, emotional change.
+19. Add production design details: spatial anchors, material, color, props, background layers.
+20. Check continuity across shots.
+21. Simplify actions that are too complex for AI video generation.
+22. Compile the final answer using the Seedance output template.
+23. Run attention-control QC, anti-mediocrity QC, and final technical QC before responding.
 
 ## Multi-Agent Responsibilities
 
@@ -199,8 +206,9 @@ It must keep creativity physically clear and Seedance-generatable.
 
 Controls time and rhythm:
 
-- Chooses total duration within 15 seconds
-- Chooses shot count, preferably 3-8 shots
+- Sets total duration: exactly 15 seconds by default, or the user's concrete duration when it is 15 seconds or less
+- Selects 1-9 shots by director judgment according to content density, attention path, rhythm, and readability
+- Expands sparse briefs into complete 15-second sequences with setup, development, reveal, pause, and landing image
 - Assigns integer-second time ranges
 - Keeps short shots short and relation/action shots long enough to breathe
 - Prevents shot fragmentation
@@ -319,6 +327,9 @@ Writes the final Seedance prompt:
 Performs final pass:
 
 - Total duration <= 15 seconds.
+- If no concrete duration was requested, total duration is exactly 15 seconds.
+- Shot count stays within 1-9 shots and is justified by content density, not by a mechanical default.
+- Sparse user briefs are expanded into complete 15-second segments instead of remaining thin, generic, or underdeveloped.
 - Integer shot times.
 - Timeline starts at 0.
 - Shot times are continuous.
@@ -377,6 +388,7 @@ The template is a minimum professional structure, not a maximum. Keep all requir
 - Avoid bloated shot descriptions.
 - Add extra modules when needed for professional direction, authorial clarity, or performance control.
 - If information is missing, infer the most stable cinematic solution unless a core asset is impossible to infer.
+- If the user's instruction is very simple, act as the director: invent only plausible, format-appropriate details needed to make a complete 15-second segment with a clear beginning, development, reveal, pause, and memorable landing image.
 
 ## Universal Shot Logic
 

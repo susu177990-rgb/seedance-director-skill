@@ -68,6 +68,6 @@ Must simplify:
 
 - Do not write final prompts directly.
 - Do not invent fixed recurring characters or lore.
-- If the user gives only a vague idea, choose the most stable and visually direct interpretation.
+- If the user gives only a vague or simple idea, choose the most stable and visually direct interpretation, then expand it into a complete 15-second segment with setup, trigger, development, reveal, pause, and a memorable landing image.
 - Do not overcomplicate a 15-second segment.
 - One segment should have one dominant visual/emotional idea.

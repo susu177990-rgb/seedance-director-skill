@@ -170,7 +170,11 @@ seedance-director-skill/
 
 一个合格输出必须满足：
 
-- 总时长不超过 15 秒。
+- 用户未指定具体时长时，默认按 15 秒创作。
+- 用户指定 15 秒以内的具体时长时，按用户时长创作。
+- 单个 Seedance 2.0 片段不超过 15 秒。
+- 分镜数量由导演根据内容密度、注意力路径和节奏在 1-9 个内自行判断。
+- 用户只给简单指令时，skill 会主动扩展成完整、合理、有记忆点的 15 秒片段。
 - 所有分镜使用整数秒时间线。
 - 不出现“参考图”“如图所示”“这次改成”“上一版”等过程性语言。
 - 所有视觉参考都转成文本描述。
@@ -197,7 +201,11 @@ Seedance 2.0 prompt, Seedance prompt, Seedance video prompt, AI video prompt, AI
 - Creates professional Seedance 2.0 video prompts.
 - Turns rough ideas into complete cinematic shot-by-shot prompts.
 - Converts image or video-frame references into text-only Seedance prompts.
-- Designs integer-second timelines under 15 seconds.
+- Defaults to a 15-second timeline unless the user specifies a concrete duration.
+- Uses the user's concrete duration when it is 15 seconds or less.
+- Keeps one Seedance 2.0 segment within 15 seconds.
+- Lets the director choose 1-9 shots per segment based on content density, attention path, rhythm, and readability.
+- Expands simple briefs into complete 15-second segments with setup, development, reveal, pause, and a memorable landing frame.
 - Controls viewer attention: first look, second look, reveal, and landing point.
 - Applies director judgment: what to shoot, what to omit, how close the camera should be, when to move, and when to stop.
 - Adapts directing grammar to film, TVC, MV, short video, vlog, documentary, action, CG, fantasy, food, fashion, beauty, travel, and casual handheld footage.
@@ -304,7 +312,10 @@ The skill silently coordinates:
 
 A strong output should:
 
-- Stay under 15 seconds.
+- Default to 15 seconds when no concrete duration is specified.
+- Stay within 15 seconds for one Seedance 2.0 segment.
+- Select 1-9 shots by director judgment, not by a fixed default.
+- Expand simple briefs into complete, coherent 15-second segments.
 - Use integer-second shot timing.
 - Avoid process language such as “reference image”, “as shown”, “rewrite”, or “previous version”.
 - Convert all visual references into direct text instructions.
@@ -319,4 +330,3 @@ A strong output should:
 ## License
 
 MIT
-

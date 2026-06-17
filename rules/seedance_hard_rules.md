@@ -5,6 +5,10 @@ These rules are mandatory for final Seedance 2.0 prompt output.
 ## Time
 
 - Total duration <= 15 seconds.
+- If the user does not specify a concrete duration, default to exactly 15 seconds.
+- If the user specifies a concrete duration of 15 seconds or less, use that duration.
+- If the user requests more than 15 seconds for Seedance 2.0, compress the idea into 15 seconds unless the user explicitly changes platform or segment format.
+- Shot count must be director-selected within 1-9 shots according to content density, attention path, rhythm, and readability.
 - Each segment starts at `0秒`.
 - Time ranges must be continuous.
 - Use integer seconds only.

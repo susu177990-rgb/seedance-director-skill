@@ -13,6 +13,11 @@ Run this silently before output.
 ## Seedance Rules
 
 - Total duration <= 15 seconds.
+- If the user did not specify a concrete duration, the prompt uses exactly 15 seconds.
+- If the user specified a concrete duration of 15 seconds or less, the prompt uses that duration.
+- Shot count is 1-9 shots unless the user explicitly changed the format.
+- Shot count is selected by director judgment according to content density and rhythm, not by a fixed default.
+- If the user brief was simple, the output expands it into a complete 15-second segment with meaningful progression.
 - Every segment starts at 0 seconds.
 - Shot numbering starts from 1.
 - All shot times use integer seconds.
@@ -35,6 +40,7 @@ Run this silently before output.
 - Every shot has shot size, camera, composition, light, action, performance, sound, dialogue, and time.
 - Every shot has attention control, staging, and rhythm/pause logic.
 - Each shot has a clear function.
+- No shot exists only to fill time.
 - Composition is not generic unless intentional.
 - Lighting is physically described.
 - Emotion is visible through behavior.
