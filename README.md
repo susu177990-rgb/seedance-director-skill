@@ -23,6 +23,8 @@ Seedance 2.0 prompt, Seedance prompt, Seedance video prompt, AI video prompt, AI
 - 把抽象情绪转成可生成的表演控制：眼神、呼吸、嘴部、下颌、手、身体重心、动作节奏、情绪掩饰和泄露。
 - 设计导演性记忆点和 memory-point shot。
 - 检查 Seedance 生成风险，降低画面崩坏、动作混乱、角色漂移和道具跳变。
+- 用真实优秀样例库校准 MV、生活碎片、关系感和随手拍提示词，避免第一版输出只有模块、没有细节。
+- 强制每个非静态分镜写出起点、触发动作、微反应、材质/空间参与和落点状态。
 
 ## 为什么不是普通提示词模板
 
@@ -182,6 +184,8 @@ seedance-director-skill/
 - 有导演判断和取舍。
 - 有至少一个记忆点镜头。
 - 有场面调度关系，而不是堆视觉元素。
+- 每个非静态分镜的 `画面` 段不是一行元素列表，而是完整可生成的物理瞬间。
+- MV、生活碎片、关系感和随手拍类提示词会对照样例库模式，确保每镜有生活痕迹、关系机制或记忆点。
 - 有节奏停顿，而不是镜头一直动。
 - 人物情绪通过可见动作表现，而不是抽象形容词。
 - 创意和调度必须符合 AI 视频生成稳定性。
@@ -213,6 +217,8 @@ Seedance 2.0 prompt, Seedance prompt, Seedance video prompt, AI video prompt, AI
 - Translates abstract emotion into visible performance controls: gaze, breath, mouth, jaw, hands, body weight, posture, rhythm, concealment, and emotional leakage.
 - Adds authorial visual ideas and memory-point shots.
 - Audits Seedance generation risks and rewrites unstable prompts.
+- Calibrates MV, lifestyle, relationship, and casual-but-beautiful prompts against successful case-library patterns.
+- Forces each non-static shot to include start state, trigger action, micro-reaction, material/space participation, and landing state.
 
 ## Why It Is Different
 
