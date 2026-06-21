@@ -2,6 +2,8 @@
 
 本稿按 2026-06 系统性升级后规则重写：5 层角色锁 + 完整纹理链 + 节拍链动作 + `# 避免` 段 + 关键统一原则。
 
+Note: this is an archival regression artifact with an older visible planning-module layout. Current final prompt tasks must not copy standalone headings such as `格式与导演策略`, `观众注意力路径`, `导演判断与取舍`, `导演性记忆点`, `场面调度关系`, or `节奏与停顿策略`; use this file only for density and continuity calibration.
+
 ---
 
 ```markdown

@@ -4,7 +4,7 @@ Use these rules to prevent safe but forgettable prompts.
 
 ## Core Requirement
 
-Every final prompt must contain one authorial visual idea: a specific, filmable choice that makes the segment feel directed rather than merely described.
+Every final prompt must contain one authorial visual idea, but it should appear as a concrete shot design rather than a standalone explanation: a specific, filmable choice that makes the segment feel directed rather than merely described.
 
 The authorial idea should answer:
 
@@ -92,4 +92,3 @@ Creativity must remain generatable.
 - Keep unusual framing physically clear.
 - Do not rely on readable text, exact reflections, or complex multi-person choreography unless the shot is simplified around that one demand.
 - Let the authorial idea support the segment's core task, not decorate it.
-

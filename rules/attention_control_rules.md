@@ -4,7 +4,7 @@ Use these rules as the director's first principle: control what the viewer notic
 
 ## Core Requirement
 
-Every final prompt must define the attention path before the shot details are finalized.
+Before finalizing shot details, silently define the segment attention path. Do not output it as a standalone module unless the user asks for planning. In the final prompt, express it through per-shot `### 注意力控制`, focus, light, motion, gaze, sound, composition, and landing frames.
 
 For the whole segment, decide:
 
@@ -92,4 +92,3 @@ Revise if:
 - the product, face, or action is visible but not dominant at the right moment
 - the viewer is asked to understand emotion through adjectives instead of where the eye is guided
 - the final frame does not leave a clear attention landing point
-

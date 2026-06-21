@@ -93,11 +93,11 @@ Final prompts that ship without all five layers are flagged as **thin locks** in
 
 ## Role Image Reference Convention
 
-When the user supplies character reference images at task start:
+When the user supplies character images at task start:
 
 1. **Treat the image as the visual ground truth.** Do not re-invent face, body type, or styling from imagination.
 2. **Translate the image into text** using the five layers above.
-3. **Add the phrase** "（必须完美还原 [图源描述] 的五官长相）" at the head of the role block so the prompt body explicitly references the lock source even though the image itself cannot be in the final prompt.
+3. **Do not mention the image source in the final prompt.** At the head of the role block, write a source-free identity lock such as: "身份锚点：必须保持上述脸型、五官结构、发型和体态一致。" Then list the extracted face/body/hair/wardrobe anchors as direct text.
 4. **Lock wardrobe separately from identity** — wardrobe changes across segments even when identity stays fixed, and image references usually only confirm identity, not wardrobe across the whole project.
 
-When the user does not supply character images, treat all character description as inferred and **mark any choice the AI would have to guess** so the user can override.
+When the user does not supply character images, treat character description as inferred. Make stable, generation-friendly choices, but do not add visible "inferred/guessed" labels to the final prompt unless the user asks for an audit or planning note.

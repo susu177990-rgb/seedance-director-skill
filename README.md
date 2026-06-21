@@ -4,7 +4,7 @@
 
 Seedance Director Skill 是一个面向 **Seedance 2.0、AI 视频生成、电影级分镜、TVC 广告、MV、短视频、vlog、纪录感影像、产品广告、角色表演和镜头调度** 的 Codex skill。
 
-它不是普通的提示词模板，而是一个多智能体导演系统：先做导演判断，再设计观众注意力路径、场面调度、节奏停顿、角色表演、镜头参数和 Seedance 生成稳定性。
+它不是普通的提示词模板，而是一个多智能体导演系统：内部先做导演判断、观众注意力路径、场面调度、节奏停顿、角色表演、镜头参数和 Seedance 生成稳定性检查，最终只输出可直接用于生成的提示词。
 
 ## 适合搜索的关键词
 
@@ -16,12 +16,12 @@ Seedance 2.0 prompt, Seedance prompt, Seedance video prompt, AI video prompt, AI
 - 把粗略想法改写成完整电影级分镜。
 - 把图片、视频帧、视觉参考转换成纯文本 Seedance prompt。
 - 控制 15 秒以内的整数秒时间线。
-- 设计观众注意力路径：第一眼看哪里、第二眼看哪里、何时揭示、最终落在哪里。
-- 做导演判断：什么该拍、什么不该拍、镜头该多近、什么时候动、什么时候停。
+- 内部设计观众注意力路径，并转化到每个分镜的焦点、光线、动作、运镜和落点里。
+- 内部做导演判断：什么该拍、什么不该拍、镜头该多近、什么时候动、什么时候停；最终通过分镜选择、镜头距离、停顿和 `# 避免` 体现。
 - 适配不同视频类型：电影、TVC、MV、短视频、vlog、纪录片、动作、CG、奇幻、美食、时尚、旅行、随手拍。
 - 设计场面调度：人物、产品、镜头、光线、空间、道具、动作之间的关系。
 - 把抽象情绪转成可生成的表演控制：眼神、呼吸、嘴部、下颌、手、身体重心、动作节奏、情绪掩饰和泄露。
-- 设计导演性记忆点和 memory-point shot。
+- 设计导演性记忆点，并把它落成一个具体 memory-point shot。
 - 检查 Seedance 生成风险，降低画面崩坏、动作混乱、角色漂移和道具跳变。
 - 用真实优秀样例库校准 MV、生活碎片、关系感和随手拍提示词，避免第一版输出只有模块、没有细节。
 - 强制每个非静态分镜写出起点、触发动作、微反应、材质/空间参与和落点状态。
@@ -128,15 +128,11 @@ npx skills add <YOUR_GITHUB_USERNAME>/seedance-director-skill
 
 ## 核心输出结构
 
-最终提示词会包含：
+最终提示词只包含可生成内容。内部的格式判断、观众路径、导演取舍、场面调度策略和节奏策略不会作为独立分析模块输出，而会被转化进分镜和生成约束。
 
-- 格式与导演策略
+最终提示词通常包含：
+
 - 核心风格
-- 观众注意力路径
-- 导演判断与取舍
-- 导演性记忆点
-- 场面调度关系
-- 节奏与停顿策略
 - 场景锁定
 - 角色锁定
 - 表演控制谱
@@ -179,11 +175,12 @@ seedance-director-skill/
 - 用户只给简单指令时，skill 会主动扩展成完整、合理、有记忆点的 15 秒片段。
 - 所有分镜使用整数秒时间线。
 - 不出现“参考图”“如图所示”“这次改成”“上一版”等过程性语言。
+- 不把 `格式与导演策略`、`观众注意力路径`、`导演判断与取舍`、`简单指令扩展策略`、`导演性记忆点`、`场面调度关系`、`节奏与停顿策略` 作为最终提示词独立模块输出。
 - 所有视觉参考都转成文本描述。
-- 有明确的观众注意力路径。
-- 有导演判断和取舍。
+- 有明确的观众注意力控制，并体现在分镜焦点、动作、光线、构图、声音和落点里。
+- 有导演判断和取舍，并体现在分镜选择、景别、运镜、停顿和 `# 避免` 里。
 - 有至少一个记忆点镜头。
-- 有场面调度关系，而不是堆视觉元素。
+- 有场面调度关系，并体现在每个分镜的 `画面`、`构图`、`场面调度` 和 `光影` 里，而不是堆视觉元素。
 - 每个非静态分镜的 `画面` 段不是一行元素列表，而是完整可生成的物理瞬间。
 - MV、生活碎片、关系感和随手拍类提示词会对照样例库模式，确保每镜有生活痕迹、关系机制或记忆点。
 - 有节奏停顿，而不是镜头一直动。
@@ -194,7 +191,7 @@ seedance-director-skill/
 
 Seedance Director Skill is a Codex skill for **Seedance 2.0, AI video prompts, cinematic shot design, TVC commercials, music videos, short-form video, vlogs, documentary-style footage, product ads, character performance, micro-expressions, mise-en-scene, and director-level prompt writing**.
 
-It is not just a prompt template. It works like a multi-agent director system: it makes director judgments first, then builds viewer attention control, staging, rhythm, pauses, performance details, camera parameters, continuity, and Seedance generation feasibility.
+It is not just a prompt template. It works like a multi-agent director system: it makes director judgments first, then builds viewer attention control, staging, rhythm, pauses, performance details, camera parameters, continuity, and Seedance generation feasibility. Those judgments are internal; the final answer is a generation-ready prompt, not a planning memo.
 
 ## Search Keywords
 
@@ -325,10 +322,10 @@ A strong output should:
 - Use integer-second shot timing.
 - Avoid process language such as “reference image”, “as shown”, “rewrite”, or “previous version”.
 - Convert all visual references into direct text instructions.
-- Define a clear viewer attention path.
-- Show director judgment and omission.
+- Express viewer attention control through shot-level focus, motion, light, sound, composition, and landing frames.
+- Express director judgment and omission through shot selection, camera distance, movement, pauses, and avoidance constraints.
 - Include at least one memory-point shot.
-- Use staging relationships instead of isolated visual elements.
+- Use staging relationships inside shot blocks instead of isolated visual elements.
 - Include rhythm and pause, not constant motion.
 - Translate character emotion into visible behavior.
 - Stay feasible for AI video generation.

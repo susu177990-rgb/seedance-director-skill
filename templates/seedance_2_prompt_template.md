@@ -1,21 +1,25 @@
 # Seedance 2.0 Final Prompt Template
 
-Use this template for every final prompt-writing task. Modules marked **[REQUIRED]** must ship. Modules marked **[OPTIONAL]** are conditional and only used when the brief needs them. Do not collapse required modules. Add optional modules before `# 整体质感` or as dedicated shot annotations.
+Use this template for every final prompt-writing task. Modules inside the Markdown code block are the only user-facing final prompt structure. Modules marked **[REQUIRED]** inside the code block must ship. Modules marked **[OPTIONAL]** are conditional and only used when the brief needs them.
+
+Before compiling the final code block, silently complete an internal director brief with: format grammar, viewer attention path, director judgment and omissions, simple-brief expansion strategy if needed, authorial visual idea, memory-point shot, mise-en-scene relationship map, and rhythm/pause plan. Do not output these as standalone analysis modules. Convert them into concrete shot choices: shot count, shot function, `### 画面`, `### 注意力控制`, `### 运镜`, `### 构图`, `### 场面调度`, `### 表演重点`, `### 节奏停顿`, `# 整体质感`, and `# 避免`.
 
 **Mandatory checks before shipping:**
 
-1. Every `[REQUIRED]` module is present and not stubbed.
+1. Every user-facing `[REQUIRED]` module inside the code block is present and not stubbed.
 2. `# 避免` is present with **at least 5 lines** spanning lighting, filter, performance, and continuity.
 3. `# 整体质感` repeats the **same texture chain wording** as `# 核心风格` (filter stack + light source + color palette + dynamic range). Drift is a fail.
-4. Each shot's `#画面` block contains a **beat chain** matching `rules/beat_choreography_rules.md`.
+4. Each shot's `### 画面` block contains a **beat chain** matching `rules/beat_choreography_rules.md`.
 5. Each principal character lock has the **face / hair / wardrobe / behavior / relationship** layers as defined in `rules/role_lock_detailed_rules.md`.
+6. Each non-static shot's `### 画面` block meets `rules/detail_density_rules.md`: start state + trigger action + micro-reaction + material/space participation + landing state. Thin object-list shots must be rewritten.
+7. The final code block does not contain standalone planning/process headings such as `格式与导演策略`, `观众注意力路径`, `导演判断与取舍`, `简单指令扩展策略`, `导演性记忆点`, `场面调度关系`, or `节奏与停顿策略`.
 
 ```markdown
 片段名：[片段名称]
 时长：[用户未指定具体时长时固定写15秒；用户指定15秒以内具体时长时写用户时长]
 比例：[16:9 / 9:16 / 1:1 / 2.39:1 等]
 类型：[选择3-10个关键词：真人电影感 / 产品广告 / 青春MV / 动作片段 / CG动画 / 奇幻短片 / 生活方式广告 等]
-分镜数量判断：[导演根据内容密度、注意力路径和节奏自行判断1-9个分镜]
+分镜数量：[1-9个分镜；只写最终数量，不写判断过程]
 
 ## 核心风格  [REQUIRED]
 [一段完整的视觉锚点陈述。必须包含:
@@ -27,23 +31,9 @@ Use this template for every final prompt-writing task. Modules marked **[REQUIRE
 - 颗粒 + bloom + 跑焦等artifact选择
 - 皮肤保留规则（保留真实肤色 + 毛孔 + 细小色点 / 不磨皮)
 ]
-## 格式与导演策略  [REQUIRED]
-[明确本片段属于电影/剧情、TVC、MV、短视频、vlog/随手拍、纪录感、产品广告、动作、CG/动画、奇幻、旅行、美食、时尚等哪种格式。写清楚观看场景、注意力速度、真实感/精致度、表演方式、镜头克制程度和最终落点。]
-## 观众注意力路径  [REQUIRED]
-[观众第一眼看哪里，第二眼被引到哪里，什么信息先隐藏，什么时候揭示，最终视线落在哪里。写清楚注意力引导手段：光、动作、眼神、焦点、声音、颜色、前景、线条、尺度或留白。]
-## 导演判断与取舍  [REQUIRED]
-[本片段最该拍的瞬间、不该拍或应删掉的信息、镜头距离判断、该动的镜头、该停的镜头、最终希望观众感受到什么。]
-## 简单指令扩展策略  [OPTIONAL — 仅当用户输入非常简短时启用]
-[如果用户只提供很简单的指令，写清楚如何扩展成完整15秒片段：开场读画面、触发动作、发展变化、揭示或转折、停顿、最终记忆画面。若用户信息已经充分，可删除本模块。]
-## 导演性记忆点  [REQUIRED]
-[本片段最值得被记住的视觉主意。写清楚哪个镜头是记忆点镜头，以及它通过构图、遮挡、物件、空间关系、动作节奏、光线或反差制造不可替代的观看点。]
-## 场面调度关系  [REQUIRED]
-[人物/主体、产品/道具、镜头、光线、空间、动作之间如何互相发生关系。写清楚前景/中景/背景角色、空间锚点、运动路径、遮挡/反射/光线参与方式和关系变化。]
-## 节奏与停顿策略  [REQUIRED]
-[开场让观众读画面的时间、动作加速点、揭示点、停顿点、最终落点。明确哪里必须停住让产品、情绪、动作或空间被记住。]
 ## 场景锁定  [REQUIRED — 若场景不重要可压缩到 2-3 行]
 [固定场景。明确时间、地点、天气、空间结构、主要环境元素、色彩、光线与必须保留的空间锚点。]
-## 角色锁定  [REQUIRED — 每个主体独立 block]
+## 角色锁定  [REQUIRED — 含人物、拟人主体、角色、动物或需要跨镜头身份一致的主体时；纯产品/空间片可省略]
 ### @角色A / 主体A  [REQUIRED]
 [必须按以下顺序书写，遵循 rules/role_lock_detailed_rules.md 的五层密度:
 
@@ -53,7 +43,7 @@ Use this template for every final prompt-writing task. Modules marked **[REQUIRE
 4. **本段状态**：一段话描述本片段起点的内在/外在状态、动作倾向
 5. **关系锁定**（多人场景）：关系类型 + 权力动态 + 触摸边界 + 当前关系状态 + 禁止互动
 
-如任务开始时用户提供该角色的参考图，需在 block 开头加 "（必须完美还原 [图源描述] 的五官长相）"。
+如任务开始时用户提供该角色图像，先把图像转写为脸型、五官、发型、体态、服装等纯文本锚点；block 开头写 "身份锚点：必须保持上述脸型、五官结构、发型和体态一致。" 不写“参考图 / 图源 / 如图所示”等词。
 ]
 ### @角色B / 主体B  [OPTIONAL — 多人/双主体时启用]
 [与主体A 同样五层结构。]
@@ -68,13 +58,15 @@ Use this template for every final prompt-writing task. Modules marked **[REQUIRE
 ## 关键统一原则  [REQUIRED — 锁定资产有跨镜头一致性需求时]
 [例如:Yingying 全程戴蓝白针织帽，不出现未戴帽子版本；粉色猫咪手机始终保持粉色硅胶壳+白色珠串挂绳+粉色爱心吊坠的识别特征。]
 ## 片段核心  [REQUIRED]
-[这个片段真正要表达的核心。写清楚情绪任务、视觉重点、人物/产品/空间关系、镜头重点和观众应该感受到什么。]
+[这个片段真正要表达的核心。写成可生成的最终创作约束，不写推理过程：情绪任务、视觉重点、人物/产品/空间关系、记忆点画面、最终落点。]
 
 ——————
 # 分镜画面模块  [REQUIRED — 每镜独立 block]
-## 分镜1：（[景别] / [镜头类型] / [功能定位]）
-### 画面：  [REQUIRED — 必须包含节拍链]
-[动作必须按 rules/beat_choreography_rules.md 写成节拍链，建议 0.5 秒/拍，用顿号/逗号分隔子拍，用「……」标记停顿，用「——」标记强调。镜头持续时间内的总拍数 = 时长(秒) × 2，对于 3 秒镜约为 6 拍。]
+## 分镜1：（[景别] / [镜头类型] / [功能定位；若为记忆点镜头，在此标注“记忆点”]）
+### 画面：  [REQUIRED — 必须包含节拍链 + 细节密度]
+[动作必须按 rules/beat_choreography_rules.md 写成节拍链，建议 0.5 秒/拍，用顿号/逗号分隔子拍，用「……」标记停顿，用「——」标记强调。镜头持续时间内的总拍数 = 时长(秒) × 2，对于 3 秒镜约为 6 拍。
+
+同时必须满足 rules/detail_density_rules.md: 起点状态 + 触发动作 + 微反应 + 材质/空间参与 + 落点状态。标准 2-3 秒镜头通常写 90-180 个中文字符；记忆点镜头可写 150-260 个中文字符。不要只列人物、道具和地点。]
 ### 注意力控制：  [REQUIRED]
 [先看什么，再看什么；由光线、动作、眼神、焦点、声音、颜色、前景、线条、尺度或留白如何引导；本镜头最后视线落在哪里。]
 ### 镜头参数：  [REQUIRED]
@@ -87,7 +79,7 @@ Use this template for every final prompt-writing task. Modules marked **[REQUIRE
 [人物/主体、产品/道具、镜头、光线、空间、动作之间的关系；进入、退出、遮挡、反射、距离变化或空间压力。]
 ### 光影：  [REQUIRED]
 [光源方向、光线性质、明暗分布、特殊光影、色彩。]
-### 性能重点  [REQUIRED]
+### 表演重点  [REQUIRED]
 [表情、眼神、呼吸、手部、身体重心、动作力度、情绪泄露或掩饰、产品/主体呈现方式。性能细节必须匹配景别。]
 ### 节奏停顿：  [REQUIRED]
 [本镜头何时移动、何时放慢、何时停住；停顿要让观众记住什么。]

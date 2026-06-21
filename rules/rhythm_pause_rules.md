@@ -4,7 +4,7 @@ Use these rules to control when the video breathes.
 
 ## Core Requirement
 
-Every segment must contain a rhythm strategy: where the sequence moves, where it slows, and where it lands.
+Every segment must be built from an internal rhythm strategy: where the sequence moves, where it slows, and where it lands. Do not output the strategy as a standalone module for final prompt tasks; express it through shot durations, `### 运镜`, `### 画面`, and `### 节奏停顿`.
 
 Decide:
 
@@ -68,7 +68,7 @@ Do not overload a short shot. Do not let a long shot sit without visual change o
 
 ## Landing Frame
 
-Every final prompt must define the final landing frame:
+Every final prompt must define the final landing frame inside the last shot and, when useful, `# 片段核心`:
 
 - what is most visible
 - what has stopped moving
@@ -84,4 +84,3 @@ Revise if:
 - the product appears but never lands
 - the emotional beat cuts away before it can register
 - the final frame has no stillness, focus, or visual weight
-

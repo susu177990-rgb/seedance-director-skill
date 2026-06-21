@@ -2,6 +2,8 @@
 
 Use these examples when the output risks becoming complete but ordinary. These are not fixed templates. They are calibration references for director judgment, attention control, staging, rhythm, and performance specificity.
 
+The labeled lines inside these examples are internal calibration notes, not final prompt headings. Borrow the directing logic and convert it into final shot blocks, locks, texture, sound, and avoidance constraints. Do not copy `格式与导演策略`, `观众注意力路径`, `导演判断与取舍`, `导演性记忆点`, `场面调度关系`, or `节奏与停顿策略` into final prompt output.
+
 Each example shows the gap between a safe 60-point idea and a stronger directed solution.
 
 ## 1. TVC / Perfume / Luxury Bathroom
@@ -282,4 +284,3 @@ When writing a new prompt:
 2. Borrow the directing logic, not the surface props.
 3. Build the output around attention path, director judgment, staging relationship, rhythm/pause, and performance control.
 4. If the result only describes "what happens", rewrite it until it explains why this exact moment deserves to be watched.
-
